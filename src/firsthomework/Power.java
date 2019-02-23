@@ -4,20 +4,18 @@ public class Power {
     public Power() {
     }
 
-    public void makeDegree(int number, int power) {
-        System.out.println("Квадрат числа " + number + " равен " + number * number);
-        System.out.println("Куб числа " + number + " равен " + number * number * number);
+    public void makePower(int number, int power) {
         int result = 1;
         for (int i = 1; i <= power; i++) {
             result = result * number;
         }
-        System.out.println("Результат возведения числа " + number + " в степень " + power + " равен " + result);
+        System.out.println("The number "+ number + " in power " + power + " will be " + result);
     }
 
 
     public static void main(String[] arg) {
         Power myPower = new Power();
-        myPower.makeDegree(10, 4);
+        myPower.makePower(10, 4);
 
 
     }

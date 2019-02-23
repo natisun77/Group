@@ -1,8 +1,6 @@
 package firsthomework;
 // 1.2
 public class Rhombus {
-    Rhombus() {
-    }
 
     public static void drawRhombus(int lengthOfDiagonal) {
         char star = '*';
