@@ -2,6 +2,7 @@ package firsthomework;
 //1.5
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Sort {
 
@@ -72,16 +73,27 @@ public class Sort {
         }
     }
 
-    public static void main(String[] arg) {
+    private static Random random = new Random();
 
-        int arr[] = {35, 62, 111, 57, 10, 20, 75,92,};
-        bubbleSort(arr);
-        System.out.println(Arrays.toString((arr)));
-        int arr1[] = {35, 62, 111, 57, 10, 20, 75,92,};
-        quickSort(arr1);
-        System.out.println(Arrays.toString((arr1)));
-        int arr2[] = {35, 62, 111, 57, 10, 20, 75,92,};
-        selectSort(arr2);
-        System.out.println(Arrays.toString((arr2)));
+    private static int[] generateRandomIntArray(int size) {
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt(size);
+        }
+        return array;
+    }
+
+    public static void main(String[] arg) {
+        long startTime = System.currentTimeMillis();
+        bubbleSort(generateRandomIntArray(100000));
+        System.out.println("Bubble sort took " + (System.currentTimeMillis() - startTime) + " ms to execute");
+
+        startTime = System.currentTimeMillis();
+        quickSort(generateRandomIntArray(100000));
+        System.out.println("Quick sort took " + (System.currentTimeMillis() - startTime) + " ms to execute");
+
+        startTime = System.currentTimeMillis();
+        selectSort(generateRandomIntArray(100000));
+        System.out.println("Selection sort took " + (System.currentTimeMillis() - startTime) + " ms to execute");
     }
 }
