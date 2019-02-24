@@ -5,9 +5,6 @@ import java.util.Arrays;
 
 public class Sort {
 
-    public Sort() {
-    }
-
     public static void bubbleSort(int[] arr) {
         for (int j = 0; j < arr.length; j++) {
             for (int i = 1; i < arr.length - j; i++) {
@@ -19,7 +16,6 @@ public class Sort {
                 }
             }
         }
-        System.out.println(Arrays.toString(arr));
     }
 
     public static void selectSort(int[] arr) {
@@ -38,7 +34,6 @@ public class Sort {
                 }
             }
         }
-        System.out.println(Arrays.toString(arr));
     }
 
 
@@ -46,7 +41,6 @@ public class Sort {
         int startIndex = 0;
         int endIndex = arr.length - 1;
         quickSort(arr, startIndex, endIndex);
-        System.out.println(Arrays.toString(arr));
     }
 
     private static void quickSort(int[] arr, int start, int end) {
@@ -80,12 +74,14 @@ public class Sort {
 
     public static void main(String[] arg) {
 
-        int arr[] = {3, 2, 1, 5, 10, 20};
+        int arr[] = {35, 62, 111, 57, 10, 20, 75,92,};
         bubbleSort(arr);
-        quickSort(arr);
-        selectSort(arr);
-
-
+        System.out.println(Arrays.toString((arr)));
+        int arr1[] = {35, 62, 111, 57, 10, 20, 75,92,};
+        quickSort(arr1);
+        System.out.println(Arrays.toString((arr1)));
+        int arr2[] = {35, 62, 111, 57, 10, 20, 75,92,};
+        selectSort(arr2);
+        System.out.println(Arrays.toString((arr2)));
     }
-
 }
