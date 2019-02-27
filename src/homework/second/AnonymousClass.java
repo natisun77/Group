@@ -1,10 +1,10 @@
-package secondhomework;
+package homework.second;
 //Anonymous class
 interface AbleToRead {
     public void read();
 }
 
-public class Classtype3 implements AbleToRead {
+public class AnonymousClass implements AbleToRead {
 
     public void read() {
         System.out.println("Classtype is reading");
@@ -16,10 +16,10 @@ public class Classtype3 implements AbleToRead {
 
 
     public static void main(String[] args) {
-        Classtype3 newClassType = new Classtype3();
+        AnonymousClass newClassType = new AnonymousClass();
         newClassType.write();
 
-        Classtype3 newClassType1 = new Classtype3() {
+        AnonymousClass newClassType1 = new AnonymousClass() {
             public void write() {
                 System.out.println("I am writing");
             }

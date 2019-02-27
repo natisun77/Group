@@ -1,13 +1,33 @@
-package secondhomework;
+package homework.second;
 // 2.1 builder
-public class Boat {
-    String name;
-    String color;
-    int seats;
-    int speed;
-    boolean isEngine;
+public class BoatBuilder {
+    public String getName() {
+        return name;
+    }
 
-    private Boat(Builder builder) {
+    public String getColor() {
+        return color;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public boolean isEngine() {
+        return isEngine;
+    }
+
+    private final String name;
+    private final String color;
+    private final int seats;
+    private final int speed;
+    private final boolean isEngine;
+
+    private BoatBuilder(Builder builder) {
         this.name = builder.name;
         this.color = builder.color;
         this.seats = builder.seats;
@@ -15,7 +35,7 @@ public class Boat {
         this.isEngine = builder.isEngine;
     }
 
-    static class Builder {
+   public static class Builder {
 
         private String name;
         private String color;
@@ -47,20 +67,12 @@ public class Boat {
             return this;
         }
 
-        public Boat build() {
-            return new Boat(this);
+        public BoatBuilder build() {
+            return new BoatBuilder(this);
         }
     }
 
-    public static void main(String[] args) {
-        Boat firstBoat = new Boat.Builder("Raketa").setColor("blue").setSeats(12).setSpeed(250).setIsRngine(true).build();
-        System.out.println(firstBoat.name);
-        System.out.println(firstBoat.color);
-        System.out.println(firstBoat.seats);
-        System.out.println(firstBoat.speed);
-        System.out.println(firstBoat.isEngine);
 
-    }
 
 
 }

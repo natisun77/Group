@@ -1,11 +1,11 @@
-package secondhomework;
+package homework.second;
 // 2.2 Inner Class and Local Class
-public class Classtypes {
+public class ParentForInnerClass {
     private Inerclass in;
     private int i;
     private String st;
 
-    public Classtypes(){
+    public ParentForInnerClass(){
         i = 7;
         in = this.new Inerclass();
         st = "I am a string";
@@ -31,9 +31,9 @@ public class Classtypes {
     }
 
     public static void main(String[] args) {
-        Classtypes parent = new Classtypes();
+        ParentForInnerClass parent = new ParentForInnerClass();
         Inerclass inner = parent.new Inerclass();
         inner.result();
-        Inerclass inner2 = new Classtypes().new Inerclass();
+        Inerclass inner2 = new ParentForInnerClass().new Inerclass();
     }
 }

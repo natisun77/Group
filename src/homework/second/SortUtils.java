@@ -1,26 +1,28 @@
-package secondhomework;
+package homework.second;
 //2.3
-
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
 public class SortUtils {
-
     public static int[] bubbleSort(int[] arr) {
         int[] copyArr = Arrays.copyOf(arr, arr.length);
-
         for (int j = 0; j < copyArr.length; j++) {
             for (int i = 1; i < copyArr.length - j; i++) {
                 if (copyArr[i] < copyArr[i - 1]) {
-                    int temp = 0;
-                    temp = copyArr[i];
-                    copyArr[i] = copyArr[i - 1];
-                    copyArr[i - 1] = temp;
+                    exchangeArrElements(copyArr, i, (i - 1));
                 }
             }
         }
-        System.out.println(Arrays.toString(copyArr));
+
         return copyArr;
+    }
+
+    public static int[] exchangeArrElements(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+        return arr;
     }
 
     public static int[] selectSort(int[] arr) {
@@ -33,14 +35,11 @@ public class SortUtils {
                     min = copyArr[j];
                     minIndex = j;
                     if (i != minIndex) {
-                        int temt = copyArr[i];
-                        copyArr[i] = copyArr[minIndex];
-                        copyArr[minIndex] = temt;
+                        exchangeArrElements(copyArr, i, minIndex);
                     }
                 }
             }
         }
-        System.out.println(Arrays.toString(copyArr));
         return copyArr;
     }
 
@@ -50,12 +49,10 @@ public class SortUtils {
         int startIndex = 0;
         int endIndex = copyArr.length - 1;
         quickSort(copyArr, startIndex, endIndex);
-        System.out.println(Arrays.toString(copyArr));
         return copyArr;
     }
 
     private static void quickSort(int[] arr, int start, int end) {
-
         int i = start, j = end;
         int middle = arr[start + (end - start) / 2];
 
@@ -67,10 +64,7 @@ public class SortUtils {
                 j--;
             }
             if (i <= j) {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-
+                exchangeArrElements(arr, i, j);
                 i++;
                 j--;
             }
@@ -95,7 +89,7 @@ public class SortUtils {
     }
 
     public static void main(String[] arg) {
-        int[] arr = generateRandomIntArray(10);
+        int[] arr = generateRandomIntArray(1000);
         System.out.println(Arrays.toString(arr));
         long startTime = System.currentTimeMillis();
         bubbleSort(arr);
