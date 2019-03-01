@@ -1,7 +1,6 @@
-package firsthomework;
+package homework.first;
 //1.5
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Sort {

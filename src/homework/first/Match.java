@@ -1,4 +1,4 @@
-package firsthomework;
+package homework.first;
 //1.1
 public class Match {
 

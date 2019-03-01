@@ -1,6 +1,7 @@
 package homework.second;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 //2.4
@@ -9,10 +10,14 @@ public final class Author {
     final private String name;
     final private List<Story> stories;
 
-    public Author(int pages, String name, ArrayList<Story> stories) {
+    public Author(int pages, String name, List<Story> stories) {
+        if (stories == null) {
+            this.stories = Collections.emptyList();
+        } else {
+            this.stories = new ArrayList<Story>(stories);
+        }
         this.pages = pages;
         this.name = name;
-        this.stories = (stories == null) ? null : new ArrayList<Story>(stories);
     }
 
     public int getPages() {
@@ -24,7 +29,7 @@ public final class Author {
     }
 
     public List<Story> getStories() {
-        return (stories==null)?null: new ArrayList<Story>(stories);
+        return new ArrayList<Story>(stories);
     }
 
     public final static class Story {
@@ -35,5 +40,10 @@ public final class Author {
             this.name = name;
             this.year = year;
         }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Story> stories = new ArrayList<>();
+        Author author = new Author(10, "Abc", stories);
     }
 }

@@ -1,6 +1,13 @@
 package homework.second;
 // 2.1 builder
 public class BoatBuilder {
+
+    private final String name;
+    private final String color;
+    private final int seats;
+    private final int speed;
+    private final boolean isEngine;
+
     public String getName() {
         return name;
     }
@@ -20,12 +27,6 @@ public class BoatBuilder {
     public boolean isEngine() {
         return isEngine;
     }
-
-    private final String name;
-    private final String color;
-    private final int seats;
-    private final int speed;
-    private final boolean isEngine;
 
     private BoatBuilder(Builder builder) {
         this.name = builder.name;
@@ -71,8 +72,4 @@ public class BoatBuilder {
             return new BoatBuilder(this);
         }
     }
-
-
-
-
 }

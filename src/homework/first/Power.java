@@ -1,4 +1,4 @@
-package firsthomework;
+package homework.first;
 //1.3
 public class Power {
     public Power() {
