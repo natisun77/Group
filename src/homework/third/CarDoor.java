@@ -5,8 +5,6 @@ public class CarDoor {
     private boolean isWindowOpen;
 
     public CarDoor() {
-        isDoorOpen = false;
-        isWindowOpen = false;
     }
 
     public CarDoor(boolean isDoorOpen, boolean isWindowOpen) {
@@ -54,8 +52,9 @@ public class CarDoor {
         }
     }
 
-    public void carDoorInfo() {
-        System.out.println((isDoorOpen)? ("The doors are open."): ("The doors are closed."));
-        System.out.println((isWindowOpen)?("The windows are open."): ("The windows are closed."));
+    @Override
+    public String toString() {
+        return (isDoorOpen ? "The doors are open. " : "The doors are closed. ") +
+                (isWindowOpen ? "The windows are open." : "The windows are closed.");
     }
 }
