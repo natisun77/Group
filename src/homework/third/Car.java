@@ -1,6 +1,7 @@
 package homework.third;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Car {
 
@@ -11,8 +12,8 @@ public class Car {
     private int paxCapacity;
     private int paxInCar;
     private int currentSpeed;
-    private ArrayList<CarWheel> wheels;
-    private ArrayList<CarDoor> doors;
+    private List<CarWheel> wheels;
+    private List<CarDoor> doors;
 
     public Car(int yearOfProduction) {
         this.yearOfProduction = yearOfProduction;
@@ -26,10 +27,20 @@ public class Car {
         this.paxCapacity = paxCapacity;
         this.paxInCar = paxInCar;
         this.currentSpeed = currentSpeed;
-        wheels = new ArrayList<CarWheel>();
-        doors = new ArrayList<CarDoor>();
+        addWheelsForNewCar();
+        addDoorsForNewCar();
+    }
+
+    private void addWheelsForNewCar() {
+        wheels = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             wheels.add(new CarWheel());
+        }
+    }
+
+    private void addDoorsForNewCar() {
+        doors = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
             doors.add(new CarDoor());
         }
     }
@@ -97,14 +108,14 @@ public class Car {
         return currentMaxSpeed;
     }
 
-    public void carInfo() {
-        System.out.println("Car was made in: " + yearOfProduction + ".");
-        System.out.println("Car's engine is " + engine + ".");
-        System.out.println("The max speed of the car is:  " + maxSpeed + ". Acceleration time for 100km per hour is " + accelerationTime + " sec.");
-        System.out.println("Passanger capacity is " + paxCapacity + ". Now we have " + paxInCar + " passangers in car.");
-        System.out.println("Current speed is " + currentSpeed + ".");
-        System.out.println("Current possible max speed is " + getCurrentPossibleMaxSpeed());
-        System.out.println("Car has " + wheels.size() + " wheels and " + doors.size() + " doors.");
-        System.out.println();
+    @Override
+    public String toString() {
+        return ("Car was made in: " + yearOfProduction + ".\n" +
+                "Car's engine is " + engine + ".\n" +
+                "The max speed of the car is:  " + maxSpeed + ". Acceleration time for 100km per hour is " + accelerationTime + " sec.\n" +
+                "Passanger capacity is " + paxCapacity + ". Now we have " + paxInCar + " passangers in car.\n" +
+                "Current speed is " + currentSpeed + ".\n" +
+                "Current possible max speed is " + getCurrentPossibleMaxSpeed() +
+                "Car has " + wheels.size() + " wheels and " + doors.size() + " doors.\n");
     }
 }
