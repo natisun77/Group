@@ -4,7 +4,7 @@ public class CarWheel {
     private float tireStatus;
 
     public CarWheel() {
-        tireStatus = 0.85f;
+        tireStatus = 1.00f;
     }
 
     public float getTireStatus() {
@@ -34,7 +34,8 @@ public class CarWheel {
         }
     }
 
-    public void tireStatusInfo() {
-        System.out.println("The status of tire is " + tireStatus);
+    @Override
+    public String toString() {
+        return "The status of tire is " + tireStatus;
     }
 }
