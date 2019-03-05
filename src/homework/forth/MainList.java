@@ -4,8 +4,8 @@ public class MainList {
 
 
     public static void main(String[] args) {
-        //testArrayList();
-        //testLinkedList();
+        testArrayList();
+        testLinkedList();
         testStack();
     }
 
@@ -17,14 +17,21 @@ public class MainList {
         System.out.println(myArrayList.size());
         System.out.println(myArrayList.get(18));
         System.out.println(myArrayList.get(16));
-        myArrayList.remove(0);
+        try {
+            myArrayList.remove(25);
+        } catch (InvalidIndexException e) {
+            System.out.println("Сaught except due to incorrect index.");
+        }
         myArrayList.remove(0);
         System.out.println(myArrayList.size());
-        System.out.println(myArrayList.get(166));
+        try {
+            myArrayList.get(166);
+        } catch (InvalidIndexException e) {
+            System.out.println("Сaught except due to incorrect index.");
+        }
         System.out.println(myArrayList.get(17));
         System.out.println(myArrayList.get(18));
-        System.out.println(myArrayList.get(19));
-        System.out.println(myArrayList.get(20));
+
     }
 
     private static void testLinkedList() {
@@ -61,8 +68,6 @@ public class MainList {
 
         myLinkedList.remove(0);
         System.out.println(myLinkedList.size());
-
-        myLinkedList.remove(0);
 
         myLinkedList.add(100);
         System.out.println(myLinkedList.size());

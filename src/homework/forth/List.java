@@ -1,10 +1,14 @@
 package homework.forth;
+
 public interface List<T> {
-    T get(int i);
+    T get(int index);
 
-    void add(T t);
+    void add(T element);
 
-    void remove(int i);
+    void remove(int index);
 
     int size();
+
+    void clear();
+
 }

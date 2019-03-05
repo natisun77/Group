@@ -17,8 +17,7 @@ public class MyLinkedList<T> implements List<T> {
 
     public T get(int index) {
         if (index >= counter || index < 0) {
-            System.out.println("Error, incorrect index " + index);
-            return null;
+            throw new InvalidIndexException("You input invalid index " + index);
         } else {
             Node<T> currentNode = first;
             for (int i = 0; i < index; i++) {
@@ -44,7 +43,7 @@ public class MyLinkedList<T> implements List<T> {
 
     public void remove(int index) {
         if (index >= counter || index < 0) {
-            System.out.println("Error, incorrect index " + index);
+            throw new InvalidIndexException("You input invalid index " + index);
         } else {
             Node<T> currentNode = first;
             for (int i = 0; i < index; i++) {

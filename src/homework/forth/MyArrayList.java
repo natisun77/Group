@@ -3,15 +3,15 @@ package homework.forth;
 public class MyArrayList<T> implements List<T> {
     private Object[] arr;
     private int counter;
+    private static final int INIT_SIZE = 10;
 
     public MyArrayList() {
-        arr = new Object[10];
+        arr = new Object[INIT_SIZE];
     }
 
     public T get(int index) {
         if (index < 0 || index >= counter) {
-            System.out.println("Error. Please check the index " + index);
-            return null;
+            throw new InvalidIndexException("You input invalid index " + index);
         } else {
             return (T) arr[index];
         }
@@ -20,22 +20,19 @@ public class MyArrayList<T> implements List<T> {
     public void add(T t) {
         if (arr.length == counter) {
             Object[] arrIncreased = new Object[arr.length * 3 / 2];
-            for (int i = 0; i < arr.length; i++) {
-                arrIncreased[i] = arr[i];
-            }
+            System.arraycopy(arr, 0, arrIncreased, 0, arr.length - 1);
             arr = arrIncreased;
         }
         arr[counter] = t;
         counter++;
     }
 
+
     public void remove(int index) {
         if (index < 0 || index >= counter) {
-            System.out.println("Error. Please check the index " + index);
+            throw new InvalidIndexException("You input invalid index " + index);
         } else {
-            for (int j = index; j < counter; j++) {
-                arr[j] = arr[j + 1];
-            }
+            System.arraycopy(arr, index + 1, arr, index, counter - index - 1);
             arr[counter] = null;
             counter--;
         }

@@ -5,17 +5,16 @@ import java.lang.reflect.Array;
 public class MyStack<T> {
     private Object[] arr;
     private int counter;
+    private static final int INIT_SIZE = 10;
 
     public MyStack() {
-        arr = new Object[10];
+        arr = new Object[INIT_SIZE];
     }
 
     public void push(T t) {
         if (arr.length == counter) {
             Object[] arrIncreased = new Object[arr.length * 3 / 2];
-            for (int i = 0; i < arr.length; i++) {
-                arrIncreased[i] = arr[i];
-            }
+            System.arraycopy(arr, 0, arrIncreased, 0, arr.length - 1);
             arr = arrIncreased;
         }
         arr[counter] = t;
@@ -33,7 +32,7 @@ public class MyStack<T> {
     }
 
     public void clear() {
-        arr = new Object[10];
+        arr = new Object[INIT_SIZE];
         counter = 0;
     }
 
@@ -57,4 +56,5 @@ public class MyStack<T> {
         }
         return null;
     }
+
 }
