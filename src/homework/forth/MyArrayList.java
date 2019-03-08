@@ -1,5 +1,7 @@
 package homework.forth;
 
+import java.util.Arrays;
+
 public class MyArrayList<T> implements List<T> {
     private Object[] arr;
     private int counter;
@@ -20,7 +22,7 @@ public class MyArrayList<T> implements List<T> {
     public void add(T t) {
         if (arr.length == counter) {
             Object[] arrIncreased = new Object[arr.length * 3 / 2];
-            System.arraycopy(arr, 0, arrIncreased, 0, arr.length - 1);
+            System.arraycopy(arr, 0, arrIncreased, 0, arr.length);
             arr = arrIncreased;
         }
         arr[counter] = t;
@@ -46,5 +48,10 @@ public class MyArrayList<T> implements List<T> {
         for (int i = 0; i < counter; i++) {
             arr[i] = null;
         }
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(arr);
     }
 }
