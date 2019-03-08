@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Calculator {
-    private Map<Character, Calculation> operations = new HashMap<>();
+    private static Map<Character, Calculation> operations = new HashMap<>();
 
-    public Calculator() {
+    static {
         operations.put('+', (a, b) -> a + b);
         operations.put('-', (a, b) -> a - b);
         operations.put('*', (a, b) -> a * b);
@@ -16,12 +16,12 @@ public class Calculator {
             }
             return a / b;
         });
-        operations.put('^', (a, b) -> Math.pow(a, b));
+        operations.put('^', Math::pow);
         operations.put('v', (a, b) -> Math.pow(a, 1.0 / b));
         operations.put('#', (a, b) -> Math.pow((double) (a + b) / (a + 117), b));
     }
 
-    public double calculation(int a, char x, int b) {
+    public static double calculate(int a, char x, int b) {
         if (!operations.containsKey(x)) {
             throw new IllegalArgumentException("Invalid operation");
         }
