@@ -11,14 +11,12 @@ public class MainList {
 
     private static void testArrayList() {
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 20; i++) {
             myArrayList.add(i);
         }
         System.out.println(myArrayList.size());
-        System.out.println(myArrayList);
-
-        //System.out.println(myArrayList.get(18));
-       // System.out.println(myArrayList.get(16));
+        System.out.println(myArrayList.get(18));
+        System.out.println(myArrayList.get(16));
         try {
             myArrayList.remove(25);
         } catch (InvalidIndexException e) {
@@ -31,8 +29,8 @@ public class MainList {
         } catch (InvalidIndexException e) {
             System.out.println("Сaught except due to incorrect index.");
         }
-      //  System.out.println(myArrayList.get(17));
-      //  System.out.println(myArrayList.get(18));
+        System.out.println(myArrayList.get(17));
+        System.out.println(myArrayList.get(18));
 
     }
 
