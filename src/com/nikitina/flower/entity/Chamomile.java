@@ -1,7 +1,10 @@
-package homework.sixth;
+package com.nikitina.flower.entity;
 
 public class Chamomile extends Flower {
-    public static final int PRICE = 70;
+
+    public Chamomile(){
+        super(70);
+    }
 
     @Override
     public String toString() {

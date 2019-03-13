@@ -1,6 +1,6 @@
-package homework.sixth;
+package com.nikitina.flower.service;
 
-import java.util.ArrayList;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Main {
@@ -8,10 +8,11 @@ public class Main {
 
         FlowerStore store = new FlowerStore();
         System.out.println("Wallet is: " + store.getWallet());
-        System.out.println(store.sell(2, 4, 6));
+        System.out.println(Arrays.toString(store.sell(2, 4, 4)));
         System.out.println("Wallet is: " + store.getWallet());
         store.sellSequence(3, 2, 1);
         System.out.println("Wallet is: " + store.getWallet());
-        System.out.println(store.sellSequence(5, 3, 2));
+        System.out.println(Arrays.toString(store.sellSequence(5, 3, 4)));
+        System.out.println("Wallet is: " + store.getWallet());
     }
 }
