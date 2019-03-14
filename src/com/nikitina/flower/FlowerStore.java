@@ -1,4 +1,4 @@
-package com.nikitina.flower.service;
+package com.nikitina.flower;
 
 import com.nikitina.flower.entity.Chamomile;
 import com.nikitina.flower.entity.Flower;

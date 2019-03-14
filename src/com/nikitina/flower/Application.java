@@ -1,9 +1,9 @@
-package com.nikitina.flower.service;
+package com.nikitina.flower;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class Main {
+public class Application {
     public static void main(String[] args) {
 
         FlowerStore store = new FlowerStore();
