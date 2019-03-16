@@ -1,4 +1,4 @@
-package com.nataliia.nikitina;
+package com.nikitina.university;
 
 public class Student {
     private String name;

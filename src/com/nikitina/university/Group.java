@@ -1,4 +1,4 @@
-package com.nataliia.nikitina;
+package com.nikitina.university;
 
 import java.util.ArrayList;
 
