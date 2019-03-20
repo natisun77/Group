@@ -2,9 +2,9 @@ package homework.eighth.scheduledexecutorex;
 
 import java.util.concurrent.Callable;
 
-public class Item implements Callable {
+public class Item implements Callable<String> {
     @Override
-    public Object call() throws Exception {
+    public String call() throws Exception {
         System.out.println(Thread.currentThread().getName());
         Thread.sleep(500);
         return "End.";

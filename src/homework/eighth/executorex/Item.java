@@ -1,11 +1,8 @@
 package homework.eighth.executorex;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
 
-public class ExampleCallable implements Callable<String> {
+public class Item implements Callable<String> {
 
     @Override
     public String call() throws Exception {
