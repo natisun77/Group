@@ -23,9 +23,8 @@ public class Item extends RecursiveTask<Long> {
             long middle = (to + from) / 2;
             Item firstHalf = new Item(from, middle);
             firstHalf.fork();
-            Item seconHalf = new Item(middle + 1, to);
-            long seconValue = seconHalf.compute();
-            return firstHalf.join()+seconValue;
+            Item secondHalf = new Item(middle + 1, to);
+            return firstHalf.join() + secondHalf.compute();
         }
     }
 }
