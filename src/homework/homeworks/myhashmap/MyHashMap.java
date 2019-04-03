@@ -37,7 +37,8 @@ public class MyHashMap<K, V> {
         if (bucketsOccupied / array.length >= LOAD_FACTOR) {
             Node<K, V>[] arrayNew = new Node[array.length * 2];
             for (int i = 0; i < array.length; i++) {
-                arrayNew[array[i].key.hashCode() % arrayNew.length] = array[i];
+                arrayNew[getNumberOfBucket(array[i].key.hashCode())] = array[i];
+
                 int hashCodeOfNode = array[i].key.hashCode();
                 int indexOfBucket = getNumberOfBucket(hashCodeOfNode);
                 arrayNew[indexOfBucket] = array[i];
