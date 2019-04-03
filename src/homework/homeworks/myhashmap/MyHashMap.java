@@ -31,7 +31,6 @@ public class MyHashMap<K, V> {
                     ", nextNode=" + nextNode +
                     '}';
         }
-
     }
 
     public void put(K key, V value) {
@@ -39,17 +38,20 @@ public class MyHashMap<K, V> {
             Node<K, V>[] arrayNew = new Node[array.length * 2];
             for (int i = 0; i < array.length; i++) {
                 arrayNew[array[i].key.hashCode() % arrayNew.length] = array[i];
+                int hashCodeOfNode = array[i].key.hashCode();
+                int indexOfBucket = getNumberOfBucket(hashCodeOfNode);
+                arrayNew[indexOfBucket] = array[i];
             }
             array = arrayNew;
         }
         int hashCodeOfNode = key.hashCode();
-        int numerOfBucket = hashCodeOfNode % array.length;
+        int numerOfBucket = getNumberOfBucket(hashCodeOfNode);
         Node<K, V> currentNode = array[numerOfBucket];
         if (currentNode == null) {
             currentNode = array[numerOfBucket] = new Node<K, V>(key, value);
             bucketsOccupied++;
         } else {
-            while (true) {
+            while (currentNode != null) {
                 if (currentNode.key.equals(key)) {
                     currentNode.value = value;
                     break;
@@ -67,7 +69,7 @@ public class MyHashMap<K, V> {
 
     public void remove(K key) {
         int hashCodeOfNode = key.hashCode();
-        int numberOfBucket = hashCodeOfNode % array.length;
+        int numberOfBucket = getNumberOfBucket(hashCodeOfNode);
         Node<K, V> currentNode = array[numberOfBucket];
         if (currentNode != null && currentNode.key.equals(key)) {
             if (currentNode.nextNode == null) {
@@ -100,7 +102,7 @@ public class MyHashMap<K, V> {
 
     public V get(K key) {
         int hashCodeOfNode = key.hashCode();
-        int numberOfBucket = hashCodeOfNode % array.length;
+        int numberOfBucket = getNumberOfBucket(hashCodeOfNode);
         Node<K, V> currentNode = array[numberOfBucket];
         while (currentNode != null) {
             if (currentNode.key.equals(key)) {
@@ -112,31 +114,14 @@ public class MyHashMap<K, V> {
         return null;
     }
 
+    private int getNumberOfBucket(int hashCodeOfNode) {
+        return Math.abs(hashCodeOfNode) % array.length;
+    }
+
     @Override
     public String toString() {
         return "MyHashMap{" +
                 "array=" + Arrays.toString(array) +
                 '}';
-    }
-
-    public static void main(String[] args) {
-        MyHashMap<Integer, String> myHashMap = new MyHashMap<>();
-        myHashMap.put(1, "1");
-        myHashMap.put(2, "2");
-        myHashMap.put(3, "3");
-
-        System.out.println(myHashMap.get(1));
-        System.out.println(myHashMap.get(4));
-        myHashMap.remove(1);
-        myHashMap.remove(3);
-        System.out.println(myHashMap);
-        myHashMap.put(4, "4");
-        myHashMap.put(5, "5");
-        myHashMap.put(6, "6");
-        System.out.println(myHashMap);
-        System.out.println(myHashMap.size());
-        myHashMap.clear();
-        System.out.println(myHashMap.size());
-        System.out.println(myHashMap);
     }
 }
