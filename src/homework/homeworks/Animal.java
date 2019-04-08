@@ -25,6 +25,11 @@ public class Animal implements Serializable {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
     public String toString() {
         return "Animal{" +
                 "name='" + name + '\'' +
@@ -42,12 +47,12 @@ public class Animal implements Serializable {
                 if (obj instanceof Animal) {
                     animals[i] = (Animal) obj;
                 } else {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Byte array does not contains Animal class");
                 }
             }
             return animals;
         } catch (IOException | ClassNotFoundException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Byte array does not contains Animal class", e);
         }
     }
 
@@ -78,7 +83,5 @@ public class Animal implements Serializable {
         byte[] arrayOfBytes = serializeAnimals(animals);
         String result = Arrays.toString(deserializeAnimalArray(arrayOfBytes));
         System.out.println(result);
-        //     Animal[] array = deserializeAnimalArray(new byte[5]);
     }
 }
-
