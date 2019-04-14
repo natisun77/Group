@@ -3,7 +3,6 @@ package homework.homeworks.buildingclasses;
 import homework.homeworks.buildingclasses.entity.Message;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,10 +16,7 @@ public class MailService<T> implements Consumer<Message<T>> {
         mailBox = new HashMap<String, List<T>>() {
             @Override
             public List<T> get(Object key) {
-                if (!containsKey(key)) {
-                    return Collections.emptyList();
-                }
-                return super.get(key);
+                return super.getOrDefault(key, new ArrayList<>());
             }
         };
     }
@@ -31,9 +27,6 @@ public class MailService<T> implements Consumer<Message<T>> {
 
     @Override
     public void accept(Message<T> message) {
-        if (!mailBox.containsKey(message.getTo())) {
-            mailBox.put(message.getTo(), new ArrayList<>());
-        }
-        mailBox.get(message.getTo()).add(message.getContent());
+        mailBox.get(message.getTo()).add(message.getCONTENT());
     }
 }

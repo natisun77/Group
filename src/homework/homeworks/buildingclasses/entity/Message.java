@@ -2,25 +2,25 @@ package homework.homeworks.buildingclasses.entity;
 
 public abstract class Message<T> {
 
-    private String from;
-    private String to;
-    private T content;
+    private final String FROM;
+    private final String TO;
+    private final T CONTENT;
 
-    public Message(String from, String to, T content) {
-        this.from = from;
-        this.to = to;
-        this.content = content;
+    public Message(String FROM, String to, T CONTENT) {
+        this.FROM = FROM;
+        this.TO = to;
+        this.CONTENT = CONTENT;
     }
 
-    public String getFrom() {
-        return from;
+    public String getFROM() {
+        return FROM;
     }
 
     public String getTo() {
-        return to;
+        return TO;
     }
 
-    public T getContent() {
-        return content;
+    public T getCONTENT() {
+        return CONTENT;
     }
 }
