@@ -16,9 +16,8 @@ public class MainStream {
     static String regex = "\\W";
     static Pattern p = Pattern.compile(regex, Pattern.UNICODE_CHARACTER_CLASS);
 
-
     public static void main(String[] args) {
-        ArrayList<String> words = new ArrayList<>();
+        List<String> words = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));) {
             String currentLine;
             while ((currentLine = reader.readLine()) != null && !currentLine.equals("")) {
